@@ -25,10 +25,15 @@ public class ShopTypeController {
     @Resource
     private IShopTypeService typeService;
 
+    /**
+     * 商品类型展示
+     * @return
+     */
     @GetMapping("list")
     public Result queryTypeList() {
-        List<ShopType> typeList = typeService
-                .query().orderByAsc("sort").list();
+//        List<ShopType> typeList = typeService
+//                .query().orderByAsc("sort").list();
+        List<ShopType> typeList = typeService.listBySort();
         return Result.ok(typeList);
     }
 }
